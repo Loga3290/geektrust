@@ -2,12 +2,19 @@ package com.example.geektrust.factories.water;
 
 import com.example.geektrust.factories.aparment.Apartment;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 public class TankerWater implements WaterType {
 
-    private static final int SLAB_3000 = 8;
-    private static final int SLAB_1500 = 5;
-    private static final int SLAB_500 = 3;
-    private static final int SLAB_000 = 2;
+    Map<Integer, Integer> slabMap = Stream.of(new Integer[][] {
+            { 3000, 8 },
+            { 1500, 5 },
+            { 500, 3 },
+            { 0, 2 },
+    }).collect(Collectors.toMap(o -> o[0], o -> o[1], (r, integers) -> null, LinkedHashMap::new));
     private Integer noOfDays = 30;
 
     @Override
@@ -18,19 +25,13 @@ public class TankerWater implements WaterType {
     @Override
     public Double calculateCost(Integer totalLitres) {
         Integer totalCost = 0;
-        if(totalLitres > 3000){
-            totalCost += (totalLitres - 3000) * SLAB_3000;
-            totalLitres = 3000;
+        //top down approach to find the cost
+        for(Map.Entry<Integer, Integer> entry : slabMap.entrySet()){
+            if(totalLitres > entry.getKey()){
+                totalCost += (totalLitres - entry.getKey()) * entry.getValue();
+                totalLitres = entry.getKey();
+            }
         }
-        if(totalLitres > 1500){
-            totalCost += (totalLitres - 1500) * SLAB_1500;
-            totalLitres = 1500;
-        }
-        if(totalLitres > 500){
-            totalCost += (totalLitres - 500) * SLAB_500;
-            totalLitres = 500;
-        }
-        totalCost += totalLitres * SLAB_000;
         return Double.valueOf(totalCost);
     }
 }

@@ -8,10 +8,7 @@ public class ApartmentAndRatio {
     private ApartmentAndRatio(){
 
     }
-    private ApartmentAndRatio(Apartment apartment, String allotmentRatio){
-        this.apartment = apartment;
-        this.allotmentRatio = allotmentRatio;
-    }
+
     private Apartment apartment;
     private String allotmentRatio;
 
