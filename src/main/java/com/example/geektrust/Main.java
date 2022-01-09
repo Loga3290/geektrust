@@ -24,7 +24,7 @@ public class Main {
                 commandImpl.runCommand(arguments);
             }
         } catch (WaterManagementException ex) {
-            System.out.println(ex);
+            System.out.println(ex.getMessage());
         }
     }
 }

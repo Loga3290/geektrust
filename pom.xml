@@ -8,12 +8,14 @@
     <artifactId>geektrust</artifactId>
     <version>1.0</version>
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
-            <version>5.7.1</version>
+            <version>5.8.2</version>
             <scope>test</scope>
         </dependency>
+
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
@@ -27,10 +29,15 @@
             <scope>test</scope>
         </dependency>
         <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.8.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.18.22</version>
-            <scope>compile</scope>
         </dependency>
     </dependencies>
     <properties>
@@ -88,29 +95,29 @@
                 </dependencies>
             </plugin>
             <!-- Code coverage plugin. Use only if you are adding unit tests. Do not change any of the values in the entries below -->
-			<plugin>
-				<groupId>org.jacoco</groupId>
-				<artifactId>jacoco-maven-plugin</artifactId>
-				<version>0.8.7</version>
-				<executions>
-					<execution>
-						<goals>
-							<goal>prepare-agent</goal>
-						</goals>
-					</execution>
-					<execution>
-						<id>report</id>
-						<phase>test</phase>
-						<goals>
-							<goal>report</goal>
-						</goals>
-						<configuration>
-							<formats><format>XML</format></formats>
-							<outputDirectory>./</outputDirectory>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.7</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>report</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                        <configuration>
+                            <formats><format>XML</format></formats>
+                            <outputDirectory>./</outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 </project>

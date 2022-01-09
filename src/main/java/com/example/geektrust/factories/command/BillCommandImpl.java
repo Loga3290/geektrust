@@ -27,6 +27,6 @@ public class BillCommandImpl implements Command {
             totalCost.updateAndGet(v -> v + waterType.calculateCost(litres).intValue());
 
         });
-        System.out.println(totalLitres.get() + " " + totalCost.get());
+        System.out.print(totalLitres.get() + " " + totalCost.get());
     }
 }

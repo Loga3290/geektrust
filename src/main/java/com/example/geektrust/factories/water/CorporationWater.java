@@ -1,10 +1,7 @@
 package com.example.geektrust.factories.water;
 
 import com.example.geektrust.factories.aparment.Apartment;
-
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
+import com.example.geektrust.util.Util;
 
 public class CorporationWater implements WaterType {
 
@@ -14,9 +11,7 @@ public class CorporationWater implements WaterType {
     @Override
     public Integer calculateLitres(Apartment apartment, String ratio) {
         int totalWaterConsumed = apartment.getNoOfPersons() * apartment.getLitrePerPerson() * noOfDays;
-        List<Integer> ratios = Arrays.stream(ratio.split(":")).map(Integer::parseInt).collect(Collectors.toList());
-        Integer sum = ratios.stream().collect(Collectors.summingInt(Integer::intValue));
-        return (totalWaterConsumed / sum) * ratios.get(0);
+        return Util.getLitres(ratio, totalWaterConsumed, 0);
     }
 
     @Override
