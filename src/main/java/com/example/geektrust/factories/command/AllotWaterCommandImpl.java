@@ -1,13 +1,16 @@
 package com.example.geektrust.factories.command;
 
-import com.example.geektrust.factories.aparment.ApartmentAndRatio;
+import com.example.geektrust.factories.aparment.Apartment;
 import com.example.geektrust.factories.aparment.ApartmentFactory;
+import com.example.geektrust.factories.aparment.ApartmentWrapper;
 
 public class AllotWaterCommandImpl implements Command {
 
     @Override
     public void runCommand(String[] args)  {
-        ApartmentAndRatio instance = ApartmentAndRatio.getInstance();
-        instance.init(ApartmentFactory.getApartment(args), args[2]);
+        Apartment apartment = ApartmentFactory.getApartment(args);
+        apartment.setAllotmentRatio(args[2]);
+
+        ApartmentWrapper.init(apartment);
     }
 }

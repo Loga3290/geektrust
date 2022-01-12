@@ -9,13 +9,13 @@ public class CorporationWater implements WaterType {
     private Integer noOfDays = 30;
 
     @Override
-    public Integer calculateLitres(Apartment apartment, String ratio) {
+    public Double calculateLitres(Apartment apartment) {
         int totalWaterConsumed = apartment.getNoOfPersons() * apartment.getLitrePerPerson() * noOfDays;
-        return Util.getLitres(ratio, totalWaterConsumed, 0);
+        return Util.getLitres(apartment.getAllotmentRatio(), totalWaterConsumed, 0);
     }
 
     @Override
-    public Double calculateCost(Integer litres) {
+    public Double calculateCost(Double litres) {
         return Double.valueOf(litres * costPerLitre);
     }
 }

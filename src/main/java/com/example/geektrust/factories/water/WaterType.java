@@ -4,7 +4,7 @@ import com.example.geektrust.factories.aparment.Apartment;
 
 public interface WaterType {
 
-    Integer calculateLitres(Apartment apartment, String ratio);
+    Double calculateLitres(Apartment apartment);
 
-    Double calculateCost(Integer litres);
+    Double calculateCost(Double litres);
 }

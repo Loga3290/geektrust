@@ -9,13 +9,13 @@ public class BorewellWater implements WaterType {
     private double costPerLitre = 1.5;
 
     @Override
-    public Integer calculateLitres(Apartment apartment, String ratio) {
+    public Double calculateLitres(Apartment apartment) {
         int totalWaterConsumed = apartment.getNoOfPersons() * apartment.getLitrePerPerson() * noOfDays;
-        return Util.getLitres(ratio, totalWaterConsumed, 1);
+        return Util.getLitres(apartment.getAllotmentRatio(), totalWaterConsumed, 1);
     }
 
     @Override
-    public Double calculateCost(Integer litres) {
+    public Double calculateCost(Double litres) {
         return litres * costPerLitre;
     }
 }

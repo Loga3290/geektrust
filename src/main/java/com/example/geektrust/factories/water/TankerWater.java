@@ -9,29 +9,29 @@ import java.util.stream.Stream;
 
 public class TankerWater implements WaterType {
 
-    Map<Integer, Integer> slabMap = Stream.of(new Integer[][] {
-            { 3000, 8 },
-            { 1500, 5 },
-            { 500, 3 },
-            { 0, 2 },
+    Map<Double, Double> slabMap = Stream.of(new Double[][] {
+            { 3000d, 8d },
+            { 1500d, 5d },
+            { 500d, 3d },
+            { 0d, 2d },
     }).collect(Collectors.toMap(o -> o[0], o -> o[1], (r, integers) -> null, LinkedHashMap::new));
     private Integer noOfDays = 30;
 
     @Override
-    public Integer calculateLitres(Apartment apartment, String ratio) {
-        return apartment.getNoOfGuests() * apartment.getLitrePerPerson() * noOfDays;
+    public Double calculateLitres(Apartment apartment) {
+        return Double.valueOf(apartment.getNoOfGuests() * apartment.getLitrePerPerson() * noOfDays);
     }
 
     @Override
-    public Double calculateCost(Integer totalLitres) {
-        Integer totalCost = 0;
+    public Double calculateCost(Double totalLitres) {
+        Double totalCost = 0d;
         //top down approach to find the cost
-        for(Map.Entry<Integer, Integer> entry : slabMap.entrySet()){
+        for(Map.Entry<Double, Double> entry : slabMap.entrySet()){
             if(totalLitres > entry.getKey()){
                 totalCost += (totalLitres - entry.getKey()) * entry.getValue();
                 totalLitres = entry.getKey();
             }
         }
-        return Double.valueOf(totalCost);
+        return totalCost;
     }
 }

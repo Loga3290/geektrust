@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Util {
-    public static Integer getLitres(String ratio, int totalWaterConsumed, int index) {
+    public static Double getLitres(String ratio, int totalWaterConsumed, int index) {
         List<Integer> ratios;
         Integer sum;
         try {
@@ -20,6 +20,6 @@ public class Util {
             throw new WaterManagementException("Invalid Ratio");
         }
 
-        return (totalWaterConsumed / sum) * ratios.get(index);
+        return Double.valueOf(Double.valueOf(totalWaterConsumed) / Double.valueOf(sum) * Double.valueOf(ratios.get(index)));
     }
 }
