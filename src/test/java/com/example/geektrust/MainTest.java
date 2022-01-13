@@ -40,8 +40,7 @@ public class MainTest {
         List<String> commandList = Arrays.asList("ALLOT_WATER 2 3:7",
                 "ADD_GUESTS 2", "ADD_GUESTS 3", "BILL");
         addCommandToTheFile(commandList);
-        Main main = new Main();
-        main.main(new String[1]);
+        new Main().main(new String[]{"sample_input/input1.txt"});
         assertEquals("2400 5215", outContent.toString()
                 .trim());
 
@@ -53,8 +52,7 @@ public class MainTest {
         List<String> commandList = Arrays.asList("ALLOT_WATER 3 2:1",
                 "ADD_GUESTS 4", "ADD_GUESTS 1", "BILL");
         addCommandToTheFile(commandList);
-        Main main = new Main();
-        main.main(new String[1]);
+        new Main().main(new String[]{"sample_input/input1.txt"});
         assertEquals("3000 5750", outContent.toString()
                 .trim());
 
@@ -65,8 +63,7 @@ public class MainTest {
         deleteFileContents();
         List<String> commandList = Arrays.asList("ALLOT_WATER 2 1:2", "BILL");
         addCommandToTheFile(commandList);
-        Main main = new Main();
-        main.main(new String[1]);
+        new Main().main(new String[]{"sample_input/input1.txt"});
         assertEquals("900 1200", outContent.toString()
                 .trim());
 
@@ -77,8 +74,7 @@ public class MainTest {
         deleteFileContents();
         List<String> commandList = Arrays.asList("test 4 1:2", "BILL");
         addCommandToTheFile(commandList);
-        Main main = new Main();
-        main.main(new String[1]);
+        new Main().main(new String[]{"sample_input/input1.txt"});
         assertEquals("Invalid command", outContent.toString()
                 .trim());
     }
@@ -88,8 +84,7 @@ public class MainTest {
         deleteFileContents();
         List<String> commandList = Arrays.asList("ALLOT_WATER 4 1:2", "BILL");
         addCommandToTheFile(commandList);
-        Main main = new Main();
-        main.main(new String[1]);
+        new Main().main(new String[]{"sample_input/input1.txt"});
         assertEquals("Invalid Apartment Room type", outContent.toString()
                 .trim());
     }
@@ -99,8 +94,7 @@ public class MainTest {
         deleteFileContents();
         List<String> commandList = Arrays.asList("ALLOT_WATER 3 1:2:3", "BILL");
         addCommandToTheFile(commandList);
-        Main main = new Main();
-        main.main(new String[1]);
+        new Main().main(new String[]{"sample_input/input1.txt"});
         assertEquals("Invalid Ratio", outContent.toString()
                 .trim());
     }
@@ -110,8 +104,7 @@ public class MainTest {
         deleteFileContents();
         List<String> commandList = Arrays.asList("ALLOT_WATER 3 test:test", "BILL");
         addCommandToTheFile(commandList);
-        Main main = new Main();
-        main.main(new String[1]);
+        new Main().main(new String[]{"sample_input/input1.txt"});
         assertEquals("Invalid Ratio", outContent.toString()
                 .trim());
     }
