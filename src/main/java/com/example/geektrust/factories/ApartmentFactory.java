@@ -1,4 +1,8 @@
-package com.example.geektrust.factories.aparment;
+package com.example.geektrust.factories;
+
+import com.example.geektrust.model.aparment.Apartment;
+import com.example.geektrust.model.aparment.ThreeBedRoomApartment;
+import com.example.geektrust.model.aparment.TwoBedRoomApartment;
 
 public class ApartmentFactory {
 

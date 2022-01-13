@@ -1,10 +1,10 @@
-package com.example.geektrust.factories.command;
+package com.example.geektrust.model.command;
 
 import com.example.geektrust.exception.WaterManagementException;
-import com.example.geektrust.factories.aparment.Apartment;
-import com.example.geektrust.factories.aparment.ApartmentWrapper;
-import com.example.geektrust.factories.water.WaterFactory;
-import com.example.geektrust.factories.water.WaterType;
+import com.example.geektrust.model.aparment.Apartment;
+import com.example.geektrust.model.aparment.ApartmentWrapper;
+import com.example.geektrust.factories.WaterFactory;
+import com.example.geektrust.model.water.WaterType;
 
 import java.util.Arrays;
 import java.util.List;

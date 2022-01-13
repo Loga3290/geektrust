@@ -1,8 +1,8 @@
 package com.example.geektrust;
 
 import com.example.geektrust.exception.WaterManagementException;
-import com.example.geektrust.factories.command.Command;
-import com.example.geektrust.factories.command.CommandFactory;
+import com.example.geektrust.model.command.Command;
+import com.example.geektrust.factories.CommandFactory;
 
 import java.io.BufferedReader;
 import java.io.File;

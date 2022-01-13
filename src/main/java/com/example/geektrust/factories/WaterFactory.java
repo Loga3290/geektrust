@@ -1,6 +1,10 @@
-package com.example.geektrust.factories.water;
+package com.example.geektrust.factories;
 
 import com.example.geektrust.exception.WaterManagementException;
+import com.example.geektrust.model.water.BorewellWater;
+import com.example.geektrust.model.water.CorporationWater;
+import com.example.geektrust.model.water.TankerWater;
+import com.example.geektrust.model.water.WaterType;
 
 public class WaterFactory {
 

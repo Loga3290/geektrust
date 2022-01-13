@@ -1,6 +1,10 @@
-package com.example.geektrust.factories.command;
+package com.example.geektrust.factories;
 
 import com.example.geektrust.exception.WaterManagementException;
+import com.example.geektrust.model.command.AddGuestsCommandImpl;
+import com.example.geektrust.model.command.AllotWaterCommandImpl;
+import com.example.geektrust.model.command.BillCommandImpl;
+import com.example.geektrust.model.command.Command;
 
 public class CommandFactory {
 

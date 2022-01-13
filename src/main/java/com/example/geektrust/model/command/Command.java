@@ -1,4 +1,4 @@
-package com.example.geektrust.factories.command;
+package com.example.geektrust.model.command;
 
 public interface Command {
      void runCommand(String[] args) ;

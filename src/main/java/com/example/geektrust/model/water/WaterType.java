@@ -1,6 +1,6 @@
-package com.example.geektrust.factories.water;
+package com.example.geektrust.model.water;
 
-import com.example.geektrust.factories.aparment.Apartment;
+import com.example.geektrust.model.aparment.Apartment;
 
 public interface WaterType {
 

@@ -1,4 +1,4 @@
-package com.example.geektrust.factories.aparment;
+package com.example.geektrust.model.aparment;
 
 import lombok.Data;
 

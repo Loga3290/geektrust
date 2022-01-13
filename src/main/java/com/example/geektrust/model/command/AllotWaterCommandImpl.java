@@ -1,8 +1,8 @@
-package com.example.geektrust.factories.command;
+package com.example.geektrust.model.command;
 
-import com.example.geektrust.factories.aparment.Apartment;
-import com.example.geektrust.factories.aparment.ApartmentFactory;
-import com.example.geektrust.factories.aparment.ApartmentWrapper;
+import com.example.geektrust.model.aparment.Apartment;
+import com.example.geektrust.factories.ApartmentFactory;
+import com.example.geektrust.model.aparment.ApartmentWrapper;
 
 public class AllotWaterCommandImpl implements Command {
 
