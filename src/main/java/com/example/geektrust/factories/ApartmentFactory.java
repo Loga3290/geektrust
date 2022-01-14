@@ -9,8 +9,8 @@ public class ApartmentFactory {
 
     public static Apartment getApartment(String[] args){
         switch (args[1]){
-            case "2" : return new TwoBedRoomApartment();
-            case "3" : return new ThreeBedRoomApartment();
+            case "2" : return new TwoBedRoomApartment(3, 10, 30);
+            case "3" : return new ThreeBedRoomApartment(5, 10, 30);
             default: throw new WaterManagementException("Invalid Apartment Room type");
         }
     }

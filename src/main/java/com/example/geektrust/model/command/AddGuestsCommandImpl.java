@@ -1,18 +1,22 @@
 package com.example.geektrust.model.command;
 
 import com.example.geektrust.exception.WaterManagementException;
-import com.example.geektrust.model.aparment.Apartment;
-import com.example.geektrust.model.aparment.ApartmentWrapper;
+import com.example.geektrust.model.aparment.AparmentWrapper;
 
-public class AddGuestsCommandImpl implements Command {
+import java.util.List;
+
+public class AddGuestsCommandImpl extends Command {
+
+    public AddGuestsCommandImpl(List<String> waterTypes) {
+        super(waterTypes);
+    }
 
     @Override
-    public void runCommand(String[] args)  {
-        Apartment apartment = ApartmentWrapper.getInstance();
-        if(apartment == null){
+    public void runCommand(String[] args, AparmentWrapper aparmentWrapper)  {
+        if(aparmentWrapper.getApartment() == null){
             throw new WaterManagementException("Please run Allot_water command before running add_guest..");
 
         }
-        apartment.addGuest(Integer.parseInt(args[1]));
+        aparmentWrapper.getApartment().addGuest(Integer.parseInt(args[1]));
     }
 }

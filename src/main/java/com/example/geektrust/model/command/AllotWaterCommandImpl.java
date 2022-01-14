@@ -1,16 +1,23 @@
 package com.example.geektrust.model.command;
 
-import com.example.geektrust.model.aparment.Apartment;
 import com.example.geektrust.factories.ApartmentFactory;
-import com.example.geektrust.model.aparment.ApartmentWrapper;
+import com.example.geektrust.model.aparment.AparmentWrapper;
+import com.example.geektrust.model.aparment.Apartment;
 
-public class AllotWaterCommandImpl implements Command {
+import java.util.List;
+
+public class AllotWaterCommandImpl extends Command {
+
+    public AllotWaterCommandImpl(List<String> waterTypes) {
+        super(waterTypes);
+    }
 
     @Override
-    public void runCommand(String[] args)  {
+    public void runCommand(String[] args, AparmentWrapper aparmentWrapper)  {
         Apartment apartment = ApartmentFactory.getApartment(args);
         apartment.setAllotmentRatio(args[2]);
+        aparmentWrapper.setApartment(apartment);
 
-        ApartmentWrapper.init(apartment);
+
     }
 }

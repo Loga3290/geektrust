@@ -1,13 +1,17 @@
 package com.example.geektrust.model.aparment;
 
-import lombok.Data;
-
-@Data
 public class TwoBedRoomApartment extends Apartment {
 
-    private final Integer noOfPersons = 3;
+    private Integer noOfPersons;
+
+    public TwoBedRoomApartment(Integer noOfPersons, Integer litrePerPerson, Integer noOfDaysInMonth) {
+        super(litrePerPerson, noOfDaysInMonth);
+        this.noOfPersons = noOfPersons;
+    }
 
 
-
-
+    @Override
+    public Integer getNoOfPersons() {
+        return this.noOfPersons;
+    }
 }

@@ -5,12 +5,15 @@ import com.example.geektrust.util.Util;
 
 public class CorporationWater implements WaterType {
 
-    Integer costPerLitre = 1;
-    private Integer noOfDays = 30;
+    Integer costPerLitre;
+
+    public CorporationWater(int costPerLitre) {
+        this.costPerLitre = costPerLitre;
+    }
 
     @Override
     public Double calculateLitres(Apartment apartment) {
-        int totalWaterConsumed = apartment.getNoOfPersons() * apartment.getLitrePerPerson() * noOfDays;
+        int totalWaterConsumed = apartment.getNoOfPersons() * apartment.getLitrePerPerson() * apartment.getNoOfDaysInMonth();
         return Util.getLitres(apartment.getAllotmentRatio(), totalWaterConsumed, 0);
     }
 

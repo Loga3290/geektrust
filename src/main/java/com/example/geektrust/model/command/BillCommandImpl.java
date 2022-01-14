@@ -1,29 +1,29 @@
 package com.example.geektrust.model.command;
 
 import com.example.geektrust.exception.WaterManagementException;
-import com.example.geektrust.model.aparment.Apartment;
-import com.example.geektrust.model.aparment.ApartmentWrapper;
 import com.example.geektrust.factories.WaterFactory;
+import com.example.geektrust.model.aparment.AparmentWrapper;
 import com.example.geektrust.model.water.WaterType;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 
-public class BillCommandImpl implements Command {
+public class BillCommandImpl extends Command {
 
-    private List<String> waterTypes = Arrays.asList("CORPORATION_WATER", "BOREWELL_WATER", "TANKER_WATER");
+    public BillCommandImpl(List<String> waterTypes){
+        super(waterTypes);
+
+    }
     @Override
-    public void runCommand(String[] args)  {
-        Apartment apartment = ApartmentWrapper.getInstance();
-        if(apartment == null){
+    public void runCommand(String[] args, AparmentWrapper aparmentWrapper)  {
+        if(aparmentWrapper == null){
             throw new WaterManagementException("Invalid command. Allot_Water must be executed before Bill");
         }
         AtomicReference<Double> totalCost = new AtomicReference<>(0d);
         AtomicReference<Double> totalLitres = new AtomicReference<>(0d);
         waterTypes.stream().forEach(waterTypeString -> {
             WaterType waterType = WaterFactory.getWaterType(waterTypeString);
-            Double litres = waterType.calculateLitres(apartment);
+            Double litres = waterType.calculateLitres(aparmentWrapper.getApartment());
             totalLitres.updateAndGet(v -> v + litres);
             totalCost.updateAndGet(v -> v + waterType.calculateCost(litres));
 
