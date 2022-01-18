@@ -5,6 +5,7 @@ import com.example.geektrust.model.command.AddGuestsCommandImpl;
 import com.example.geektrust.model.command.AllotWaterCommandImpl;
 import com.example.geektrust.model.command.BillCommandImpl;
 import com.example.geektrust.model.command.Command;
+import com.example.geektrust.util.ErrorMessgageConstant;
 
 import java.util.Arrays;
 import java.util.List;
@@ -16,10 +17,10 @@ public class CommandFactory {
     public static Command getCommandImpl(String commandType){
 
         switch(commandType){
-            case "ALLOT_WATER" : return new AllotWaterCommandImpl(waterTypes);
-            case "ADD_GUESTS" : return new AddGuestsCommandImpl(waterTypes);
+            case "ALLOT_WATER" : return new AllotWaterCommandImpl();
+            case "ADD_GUESTS" : return new AddGuestsCommandImpl();
             case "BILL" : return new BillCommandImpl(waterTypes);
-            default: throw new WaterManagementException("Invalid command");
+            default: throw new WaterManagementException(ErrorMessgageConstant.INVALID_COMMAND);
         }
     }
 }

@@ -5,6 +5,7 @@ import com.example.geektrust.model.water.BorewellWater;
 import com.example.geektrust.model.water.CorporationWater;
 import com.example.geektrust.model.water.TankerWater;
 import com.example.geektrust.model.water.WaterType;
+import com.example.geektrust.util.ErrorMessgageConstant;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -26,7 +27,7 @@ public class WaterFactory {
             case "CORPORATION_WATER" : return new CorporationWater(1);
             case "BOREWELL_WATER" : return new BorewellWater(1.5);
             case "TANKER_WATER" : return new TankerWater(slabMap);
-            default: throw new WaterManagementException("invalid water type");
+            default: throw new WaterManagementException(ErrorMessgageConstant.INVALID_WATER_TYPE);
         }
     }
 }

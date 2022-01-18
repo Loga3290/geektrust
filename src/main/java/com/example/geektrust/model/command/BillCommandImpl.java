@@ -8,15 +8,16 @@ import com.example.geektrust.model.water.WaterType;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 
-public class BillCommandImpl extends Command {
+public class BillCommandImpl implements Command {
+
+    public List<String> waterTypes;
 
     public BillCommandImpl(List<String> waterTypes){
-        super(waterTypes);
-
+        this.waterTypes = waterTypes;
     }
     @Override
     public void runCommand(String[] args, AparmentWrapper aparmentWrapper)  {
-        if(aparmentWrapper == null){
+        if(aparmentWrapper.getApartment() == null){
             throw new WaterManagementException("Invalid command. Allot_Water must be executed before Bill");
         }
         AtomicReference<Double> totalCost = new AtomicReference<>(0d);

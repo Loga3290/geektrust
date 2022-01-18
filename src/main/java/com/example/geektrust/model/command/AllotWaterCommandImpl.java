@@ -6,11 +6,7 @@ import com.example.geektrust.model.aparment.Apartment;
 
 import java.util.List;
 
-public class AllotWaterCommandImpl extends Command {
-
-    public AllotWaterCommandImpl(List<String> waterTypes) {
-        super(waterTypes);
-    }
+public class AllotWaterCommandImpl implements Command {
 
     @Override
     public void runCommand(String[] args, AparmentWrapper aparmentWrapper)  {

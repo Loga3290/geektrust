@@ -3,7 +3,6 @@ package com.example.geektrust;
 import com.example.geektrust.exception.WaterManagementException;
 import com.example.geektrust.factories.CommandFactory;
 import com.example.geektrust.model.aparment.AparmentWrapper;
-import com.example.geektrust.model.aparment.Apartment;
 import com.example.geektrust.model.command.Command;
 
 import java.io.*;
@@ -11,13 +10,6 @@ import java.io.*;
 public class Main {
 
     public static void main(String[] args) throws IOException {
-        new Main().execute(args);
-
-
-    }
-
-    private void execute(String[] args) {
-
         try {
             AparmentWrapper aparmentWrapper = new AparmentWrapper();
             File file = new File(
@@ -37,4 +29,5 @@ public class Main {
             e.printStackTrace();
         }
     }
+
 }
